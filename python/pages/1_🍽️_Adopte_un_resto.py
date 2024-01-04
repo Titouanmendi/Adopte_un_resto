@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
-from streamlit_dynamic_filters import DynamicFilters
 from ast import literal_eval
+
+import folium
+from folium.plugins import FastMarkerCluster
+from streamlit_folium import folium_static
 
 # -- Set page config
 apptitle = 'Adopte un resto'
@@ -53,17 +56,37 @@ filtered_df = df[df['dist_minutes']<=time_available].assign(**{
 filtered_df = filtered_df[filtered_df['all_constraints_validated']]
 
 filtered_df = filtered_df[filtered_df['price']<=price_value]
+
+print(filtered_df)
   
 
 display_restaurants = st.sidebar.button("Manger !")
 
 
-# Title the app
-st.title('Liste de restaurants')
+# -- Main page
 
-st.markdown("""
- * Choisissez un restaurant grâce aux filtres à gauche
-""")
+LYBY = (48.8432804, 2.3720586)
 
+show_map = st.toggle("Liste / Carte", value=True)
 
+# df = pd.read_csv("data/restaurants.csv")
+if show_map:
+    st.markdown("### Carte des restaurants")
+    lat_lon = filtered_df.apply(lambda row: (row["lat"], row["lon"]), axis=1).to_list()
+    m = folium.Map(location=LYBY, tiles="Cartodb Positron", zoom_start=14)
+    for index, row in filtered_df.iterrows():
+        popup_content = (
+            f'<h3>{row["name"]}</h3>'
+            f'<p><b>Food Type:</b> {row["food_type"]}</p>'
+            f'<p><b>Price:</b> {row["price"]}</p>'
+            f'<p><b>Distance (minutes):</b> {row["dist_minutes"]}</p>'
+            f'<p><b>Food Constraints:</b> {row["food_constraints"]}</p>'
+        )
+        folium.Marker(
+            [row["lat"], row["lon"]], popup=folium.Popup(popup_content, max_width=300)
+        ).add_to(m)
+    FastMarkerCluster(data=lat_lon).add_to(m)
 
+    folium_static(m, width=800, height=500)
+else:
+    st.markdown("### Liste des restaurants")
