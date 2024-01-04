@@ -62,7 +62,7 @@ filtered_df = filtered_df[filtered_df['price']<=price_value]
 print(filtered_df)
   
 
-display_restaurants = st.sidebar.button("Manger !")
+# display_restaurants = st.sidebar.button("Manger !")
 
 
 # -- Main page
