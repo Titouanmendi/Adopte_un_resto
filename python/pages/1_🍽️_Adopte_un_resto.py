@@ -9,31 +9,27 @@ from streamlit_folium import folium_static
 from streamlit_card import card
 
 # -- Set page config
-apptitle = 'Adopte un resto'
+apptitle = "Adopte un resto"
 
 st.set_page_config(page_title=apptitle, page_icon=":fork_knife_plate:")
 
 # -- Default detector list
-detectorlist = ['H1','L1', 'V1']
+detectorlist = ["H1", "L1", "V1"]
 
 
 # -- Sidebar
 
 df = pd.read_csv("data/restaurants.csv")
-df['food_constraints']=df['food_constraints'].apply(literal_eval)
-df['food_type']=df['food_type'].apply(literal_eval)
+df["food_constraints"] = df["food_constraints"].apply(literal_eval)
+df["food_type"] = df["food_type"].apply(literal_eval)
 
-    
+
 st.sidebar.markdown("## Filtres")
 
-time_available = st.sidebar.slider('Distance (minutes)', 0, 30, 1)  
+time_available = st.sidebar.slider("Distance (minutes)", 0, 30, 1)
 
-df_food_contraints = pd.DataFrame({
-    'food_constraints': df['food_constraints'].explode().unique()
-})
-food_constraints = st.sidebar.multiselect(
-    'Régime', options=df_food_contraints, default=[]
-)
+df_food_contraints = pd.DataFrame({"food_constraints": df["food_constraints"].explode().unique()})
+food_constraints = st.sidebar.multiselect("Régime", options=df_food_contraints, default=[])
 
 # df_food_type = pd.DataFrame({
 #     'food_type': df['food_type'].explode().unique()
@@ -48,19 +44,23 @@ price = st.sidebar.radio(
     help="(€ (0-10), €€ (10-20) et €€€ (20-plus)",
 )
 
-price_mapping = {"€":1, "€€":2, "€€€":3}
+price_mapping = {"€": 1, "€€": 2, "€€€": 3}
 price_value = price_mapping[price]
 
 
-filtered_df = df[df['dist_minutes']<=time_available].assign(**{
-    'all_constraints_validated': lambda df: df['food_constraints'].apply(lambda c: set(food_constraints) <= set(c))
-})
-filtered_df = filtered_df[filtered_df['all_constraints_validated']]
+filtered_df = df[df["dist_minutes"] <= time_available].assign(
+    **{
+        "all_constraints_validated": lambda df: df["food_constraints"].apply(
+            lambda c: set(food_constraints) <= set(c)
+        )
+    }
+)
+filtered_df = filtered_df[filtered_df["all_constraints_validated"]]
 
-filtered_df = filtered_df[filtered_df['price']<=price_value]
+filtered_df = filtered_df[filtered_df["price"] <= price_value]
 
 print(filtered_df)
-  
+
 
 # display_restaurants = st.sidebar.button("Manger !")
 
@@ -81,6 +81,7 @@ if show_map:
             f'<h3>{row["name"]}</h3>'
             f'<p><b>Food Type:</b> {row["food_type"]}</p>'
             f'<p><b>Price:</b> {row["price"]}</p>'
+            f'<p><b>Note:</b> {row["review"]}</p>'
             f'<p><b>Distance (minutes):</b> {row["dist_minutes"]}</p>'
             f'<p><b>Food Constraints:</b> {row["food_constraints"]}</p>'
         )
@@ -114,8 +115,8 @@ else:
             url=row["gmaps_link"],
             styles={
                 "card": {
-                    "width": "100%", # <- make the card use the width of its container, note that it will not resize the height of the card automatically
-                    "height": "300px" # <- if you want to set the card height to 300px
+                    "width": "100%",  # <- make the card use the width of its container, note that it will not resize the height of the card automatically
+                    "height": "300px",  # <- if you want to set the card height to 300px
                 },
-            }
+            },
         )
