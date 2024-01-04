@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 from ast import literal_eval
+import base64
 
 import folium
 from folium.plugins import FastMarkerCluster
 from streamlit_folium import folium_static
+from streamlit_card import card
 
 # -- Set page config
 apptitle = 'Adopte un resto'
@@ -90,3 +92,30 @@ if show_map:
     folium_static(m, width=800, height=500)
 else:
     st.markdown("### Liste des restaurants")
+
+    filepath = "assets/logo.png"
+    with open(filepath, "rb") as f:
+        data = f.read()
+        encoded = base64.b64encode(data)
+        data = "data:image/png;base64," + encoded.decode("utf-8")
+
+    for index, row in filtered_df.iterrows():
+        print(row)
+
+        res = card(
+            title=row["name"],
+            text=[
+                f'Prix : {row["price"]}',
+                f'Temps de trajet : {row["dist_minutes"]} min',
+                f'Type de nourriture : {row["food_type"]}',
+                f'Régimes alimentaires : {row["food_constraints"]}',
+            ],
+            image=data,
+            url=row["gmaps_link"],
+            styles={
+                "card": {
+                    "width": "100%", # <- make the card use the width of its container, note that it will not resize the height of the card automatically
+                    "height": "300px" # <- if you want to set the card height to 300px
+                },
+            }
+        )

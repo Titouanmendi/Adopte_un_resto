@@ -19,6 +19,7 @@ streamlit = "^1.29.0"
 streamlit-dynamic-filters = "^0.1.4"
 folium = "^0.15.1"
 streamlit-folium = "^0.18.0"
+streamlit-card = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
