@@ -107,6 +107,7 @@ else:
             title=row["name"],
             text=[
                 f'Prix : {row["price"]}',
+                f'Note: {row["review"]}',
                 f'Temps de trajet : {row["dist_minutes"]} min',
                 f'Type de nourriture : {row["food_type"]}',
                 f'Régimes alimentaires : {row["food_constraints"]}',
