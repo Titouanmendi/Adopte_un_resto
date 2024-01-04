@@ -5,6 +5,10 @@ import numpy as np
 import pandas as pd
 import base64
 
+
+# -- Set page config
+st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
+
 from utils import convert_words_to_emojis
 
 df = pd.read_csv("data/restaurants.csv")

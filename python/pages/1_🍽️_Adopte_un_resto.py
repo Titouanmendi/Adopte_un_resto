@@ -11,9 +11,11 @@ from streamlit_card import card
 from utils import convert_words_to_emojis
 
 # -- Set page config
+st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
+
+# -- Set page config
 apptitle = "Adopte un resto"
 
-st.set_page_config(page_title=apptitle, page_icon=":fork_knife_plate:")
 
 # -- Default detector list
 detectorlist = ["H1", "L1", "V1"]

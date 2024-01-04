@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from ast import literal_eval
 
+# -- Set page config
+st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
+
 # -- Default detector list
 detectorlist = ['H1','L1', 'V1']
 
