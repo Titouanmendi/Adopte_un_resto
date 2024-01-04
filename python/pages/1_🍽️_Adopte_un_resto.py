@@ -8,6 +8,8 @@ from folium.plugins import FastMarkerCluster
 from streamlit_folium import folium_static
 from streamlit_card import card
 
+from utils import convert_words_to_emojis
+
 # -- Set page config
 apptitle = "Adopte un resto"
 
@@ -100,17 +102,17 @@ else:
         encoded = base64.b64encode(data)
         data = "data:image/png;base64," + encoded.decode("utf-8")
 
-    for index, row in filtered_df.iterrows():
-        print(row)
+    filtered_df["price_emoji"] = filtered_df["price"].map({1: "€", 2: "€€", 3: "€€€"})
 
+    for index, row in filtered_df.iterrows():
         res = card(
             title=row["name"],
             text=[
-                f'Prix : {row["price"]}',
+                f'Prix : {row["price_emoji"]}',
                 f'Note: {row["review"]}',
                 f'Temps de trajet : {row["dist_minutes"]} min',
-                f'Type de nourriture : {row["food_type"]}',
-                f'Régimes alimentaires : {row["food_constraints"]}',
+                f'Type de nourriture : {convert_words_to_emojis(row["food_type"])}',
+                f'Régimes alimentaires : {convert_words_to_emojis(row["food_constraints"])}',
             ],
             image=data,
             url=row["gmaps_link"],
