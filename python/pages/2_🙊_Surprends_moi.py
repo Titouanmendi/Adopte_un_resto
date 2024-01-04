@@ -24,3 +24,21 @@ while random_restaurant_3 == random_restaurant_2 or random_restaurant_3 == rando
 print(random_restaurant_1)
 print(random_restaurant_2)
 print(random_restaurant_3)
+
+restaurant1 = card(
+    title=random_restaurant_1,
+    text="Un restaurant au hasard",
+    url=df[df["name"] == random_restaurant_1].iloc[0]["gmaps_link"],
+)
+
+restaurant2 = card(
+    title=random_restaurant_2,
+    text="Un restaurant végétarien au hasard",
+    url=df[df["name"] == random_restaurant_2].iloc[0]["gmaps_link"],
+)
+
+restaurant3 = card(
+    title=random_restaurant_3,
+    text="Un restaurant halal au hasard",
+    url=df[df["name"] == random_restaurant_3].iloc[0]["gmaps_link"],
+)
