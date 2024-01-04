@@ -12,6 +12,8 @@ word_to_emoji_mapping = {
     "BISTROT": "🍽️",
     "SANDWICH": "🥪",
     "SALADE": "🥗",
+    "ASIATIQUE": "🍜",
+    "POKE": "🍱",
 }
 
 word_to_better_word = {
