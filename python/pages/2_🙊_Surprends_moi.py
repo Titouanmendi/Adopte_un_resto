@@ -14,7 +14,7 @@ if show_map:
     st.markdown(
             "### Carte des restaurants"
         )
-    lat_lon = df.apply(lambda row: (row['lat'],row['lon'])).to_list()
+    lat_lon = df.apply(lambda row: (row['lat'],row['lon']),axis=1).to_list()
     m = folium.Map(location=LYBY, tiles="Cartodb Positron", zoom_start=14)
     FastMarkerCluster(data=lat_lon).add_to(m)
 
