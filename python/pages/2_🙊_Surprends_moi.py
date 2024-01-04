@@ -25,20 +25,48 @@ print(random_restaurant_1)
 print(random_restaurant_2)
 print(random_restaurant_3)
 
+row_restaurant_1 = df[df["name"] == random_restaurant_1].iloc[0]
+print(row_restaurant_1)
 restaurant1 = card(
     title=random_restaurant_1,
-    text="Un restaurant au hasard",
-    url=df[df["name"] == random_restaurant_1].iloc[0]["gmaps_link"],
+    text=[
+        "Un restaurant végétarien au hasard",
+        f'Prix : {row_restaurant_1["price"]}',
+        f'Note: {row_restaurant_1["review"]}',
+        f'Temps de trajet : {row_restaurant_1["dist_minutes"]} min',
+        f'Type de nourriture : {row_restaurant_1["food_type"]}',
+        f'Régimes alimentaires : {row_restaurant_1["food_constraints"]}',
+    ],
+    image="assets/" + row_restaurant_1["img"],
+    url=row_restaurant_1["gmaps_link"],
 )
 
+row_restaurant_2 = df[df["name"] == random_restaurant_2].iloc[0]
 restaurant2 = card(
     title=random_restaurant_2,
-    text="Un restaurant végétarien au hasard",
-    url=df[df["name"] == random_restaurant_2].iloc[0]["gmaps_link"],
+    text=[
+        "Un restaurant végétarien au hasard",
+        f'Prix : {row_restaurant_2["price"]}',
+        f'Note: {row_restaurant_2["review"]}',
+        f'Temps de trajet : {row_restaurant_2["dist_minutes"]} min',
+        f'Type de nourriture : {row_restaurant_2["food_type"]}',
+        f'Régimes alimentaires : {row_restaurant_2["food_constraints"]}',
+    ],
+    image="assets/" + row_restaurant_2["img"],
+    url=row_restaurant_2["gmaps_link"],
 )
 
+row_restaurant_3 = df[df["name"] == random_restaurant_3].iloc[0]
 restaurant3 = card(
     title=random_restaurant_3,
-    text="Un restaurant halal au hasard",
-    url=df[df["name"] == random_restaurant_3].iloc[0]["gmaps_link"],
+    text=[
+        "Un restaurant végétarien au hasard",
+        f'Prix : {row_restaurant_3["price"]}',
+        f'Note: {row_restaurant_3["review"]}',
+        f'Temps de trajet : {row_restaurant_3["dist_minutes"]} min',
+        f'Type de nourriture : {row_restaurant_3["food_type"]}',
+        f'Régimes alimentaires : {row_restaurant_3["food_constraints"]}',
+    ],
+    image="assets/" + row_restaurant_3["img"],
+    url=row_restaurant_3["gmaps_link"],
 )
