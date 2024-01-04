@@ -1,5 +1,6 @@
-import pandas as pd
 import ast
+
+import pandas as pd
 
 
 def convert_words_to_emojis(input_string):
@@ -16,7 +17,6 @@ def convert_words_to_emojis(input_string):
 
     words = ast.literal_eval(input_string)
 
-    # Convert each word to its corresponding emoji using the mapping
     emojis = [word_to_emoji_mapping.get(word, word) for word in words]
 
     return emojis
