@@ -20,7 +20,7 @@ restaurants['food_constraints']=restaurants['food_constraints'].apply(literal_ev
 
 historique=pd.read_csv('data/historique.csv')
 historique['name'] = historique['restaurant_id'].map(restaurants.set_index('id')['name'])
-historique['pretty_date'] = pd.to_datetime(historique['date']).dt.strftime('%d %B %Y')
+historique['pretty_date'] = pd.to_datetime(historique['date'], format="%d-%m-%Y").dt.strftime('%d %B %Y')
 rating_mapping = {1: "⭐️", 2: "⭐️⭐️", 3: "⭐️⭐️⭐️", 4: "⭐️⭐️⭐️⭐️", 5: "🌟🌟🌟🌟🌟"}
 historique['pretty_rating'] = historique['rating'].map(rating_mapping)
 
@@ -39,8 +39,52 @@ if current_tab==MES_PREFERENCES:
 
 
 elif current_tab==MON_HISTORIQUE:
-    history_to_display = historique[['pretty_date','name','pretty_rating']]
-    st.data_editor(
-        history_to_display, width=800, height=500
+
+    st.markdown("# Mon historique")
+
+    history_to_display = historique[['pretty_date','name','pretty_rating']].rename(
+        columns={
+            'pretty_date': 'Date 📆',
+            'name': 'Restaurant 🍽️',
+            'pretty_rating': 'Ma note ✨',
+        }
     )
+    st.data_editor(
+        history_to_display, width=800, height=500, hide_index=True
+    )
+
+
+    with st.expander("Ajouter mon repas d'aujourd'hui ..."):
+        today = st.selectbox(
+            "Où avez-vous mangé aujourd'hui ?",
+            restaurants['name']
+        )
+        st.radio(
+        "Niveau de kiff du repas",
+        [ "⭐️",  "⭐️⭐️",  "⭐️⭐️⭐️",  "⭐️⭐️⭐️⭐️",  "🌟🌟🌟🌟🌟"],
+        horizontal=True
+        )
+
+        display_restaurants = st.button("Enregistrer !")
+
+
+elif current_tab==CITIO_STATS:
+
+    st.markdown("# Podium de la semaine 🥇")
+
+    st.markdown(f"Restaurant le plus visité: LBT")
+    st.markdown(f"Restaurant le mieux noté: King Marcel")
+
+
+    st.markdown("# Dans l'assiette des Citioyens 🍽️")
+
+    st.markdown(f"## Restaurants les plus visités dernièrement")
+    st.markdown(f"Laure: Poke Star")
+    st.markdown(f"Adrien: LBT")
+    st.markdown(f"Sarah: LBT")
+    st.markdown(f"Marc: Poke Star")
+    st.markdown(f"Marik: King Marcel")
+    st.markdown(f"Titouan: King Marcel")
+    st.markdown(f"Esther: LBT")
+    st.markdown(f"Alice: La Cafet de LYBY")
 
