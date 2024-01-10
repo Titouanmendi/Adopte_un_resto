@@ -64,7 +64,6 @@ if __name__ == "__main__":
             pattern_address = r'aria-label="([^"]*)"'
             address = re.findall(pattern_address, short_html)[-1]
             address = address[len("Adresse: ") :]
-            latitude, longitude = get_coordinates_from_address(address)
             page.locator("text='Avis'").first.click()
             time.sleep(4)
             # create new soup
@@ -76,8 +75,6 @@ if __name__ == "__main__":
             score = score[0].text
             names.append(name)
             scores.append(score)
-            latitudes.append(latitude)
-            longitudes.append(longitude)
             addresses.append(address)
 
 df = pd.DataFrame(

@@ -2,7 +2,7 @@
 name = "squad-m"
 version = "1.0.0"
 description = "Squad M repo"
-authors = ["Technical Admin <technical-admin@cit.io>"]
+authors = ["Squad M Hackaton Citio"]
 
 [tool.poetry.dependencies]
 python = "3.11.0"
@@ -20,16 +20,6 @@ streamlit-dynamic-filters = "^0.1.4"
 folium = "^0.15.1"
 streamlit-folium = "^0.18.0"
 streamlit-card = "^1.0.0"
-
-
-[tool.poetry.group.dev.dependencies]
-citio-python-dev = {git = "ssh://git@gitlab.dev.cit.io/citio/back-end/citio-python-dev.git", rev = "v1.0.5"}
-
-
-[[tool.poetry.source]]
-name = "citio-packages"
-url = "https://europe-west1-python.pkg.dev/cit-io-dev/citio-packages/simple"
-priority = "explicit"
 
 
 [[tool.poetry.source]]
