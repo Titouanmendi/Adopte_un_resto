@@ -49,7 +49,6 @@ restaurant1 = card(
     text=[
         f'Prix : {row_restaurant_1["price_emoji"]}',
         f'Note: {row_restaurant_1["review"]}',
-        f'Temps de trajet : {row_restaurant_1["dist_minutes"]} min',
         f'Type de nourriture : {convert_words_to_emojis(row_restaurant_1["food_type"])}',
         f'Régimes alimentaires : {convert_words_to_emojis(row_restaurant_1["food_constraints"])}',
     ],
@@ -70,7 +69,6 @@ restaurant2 = card(
     text=[
         f'Prix : {row_restaurant_2["price_emoji"]}',
         f'Note: {row_restaurant_2["review"]}',
-        f'Temps de trajet : {row_restaurant_2["dist_minutes"]} min',
         f'Type de nourriture : {convert_words_to_emojis(row_restaurant_2["food_type"])}',
         f'Régimes alimentaires : {convert_words_to_emojis(row_restaurant_2["food_constraints"])}',
     ],
@@ -91,7 +89,6 @@ restaurant3 = card(
     text=[
         f'Prix : {row_restaurant_3["price_emoji"]}',
         f'Note: {row_restaurant_3["review"]}',
-        f'Temps de trajet : {row_restaurant_3["dist_minutes"]} min',
         f'Type de nourriture : {convert_words_to_emojis(row_restaurant_3["food_type"])}',
         f'Régimes alimentaires : {convert_words_to_emojis(row_restaurant_3["food_constraints"])}',
     ],

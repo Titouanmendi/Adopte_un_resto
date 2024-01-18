@@ -9,6 +9,7 @@ word_to_emoji_mapping = {
     "SUSHI": "🍣",
     "PIZZA": "🍕",
     "BURGER": "🍔",
+    "LEBANESE": "🇱🇧"
     "BISTROT": "🍽️",
     "SANDWICH": "🥪",
     "SALADE": "🥗",

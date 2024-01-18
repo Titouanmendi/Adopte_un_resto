@@ -52,7 +52,7 @@ price_mapping = {"€": 1, "€€": 2, "€€€": 3}
 price_value = price_mapping[price]
 
 
-filtered_df = df[df["dist_minutes"] <= time_available].assign(
+filtered_df = df.assign(
     **{
         "all_constraints_validated": lambda df: df["food_constraints"].apply(
             lambda c: set(food_constraints) <= set(c)
@@ -86,7 +86,6 @@ if show_map:
             f'<p><b>Food Type:</b> {row["food_type"]}</p>'
             f'<p><b>Price:</b> {row["price"]}</p>'
             f'<p><b>Note:</b> {row["review"]}</p>'
-            f'<p><b>Distance (minutes):</b> {row["dist_minutes"]}</p>'
             f'<p><b>Food Constraints:</b> {row["food_constraints"]}</p>'
         )
         folium.Marker(
@@ -112,7 +111,6 @@ else:
             text=[
                 f'Prix : {row["price_emoji"]}',
                 f'Note: {row["review"]}',
-                f'Temps de trajet : {row["dist_minutes"]} min',
                 f'Type de nourriture : {convert_words_to_emojis(row["food_type"])}',
                 f'Régimes alimentaires : {convert_words_to_emojis(row["food_constraints"])}',
             ],
