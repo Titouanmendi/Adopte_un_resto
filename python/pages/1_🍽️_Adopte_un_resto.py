@@ -10,6 +10,8 @@ from streamlit_card import card
 
 from utils import convert_words_to_emojis
 
+#TODO: Use fields chez_jaz and taff_jaz
+
 # -- Set page config
 st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
 
@@ -51,7 +53,7 @@ price = st.sidebar.radio(
 price_mapping = {"€": 1, "€€": 2, "€€€": 3}
 price_value = price_mapping[price]
 
-
+# = df[df[walk_time] <= time_available].assign
 filtered_df = df.assign(
     **{
         "all_constraints_validated": lambda df: df["food_constraints"].apply(
