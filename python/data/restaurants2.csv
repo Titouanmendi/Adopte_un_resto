@@ -18,6 +18,6 @@ id,name,adress,price,lat,lon,food_constraints,food_type,gmaps_link,takeaway,revi
 16,Les Tontons Veg,"9 Rue de Lancry, 75010 Paris",2,48.8693007,2.3601478,"[""VEGAN""]","[""BURGER""]","https://www.google.com/maps/place/Les+Tontons+Veg/@48.8693042,2.3575729,17z/data=!3m1!4b1!4m6!3m5!1s0x47e66f1ad8a4c1f9:0x98b7566d663d25c2!8m2!3d48.8693007!4d2.3601478!16s%2Fg%2F11km_jwfvt?entry=ttu",True,4.9,10,True,False,False,False
 17,Furahaa,"78 Rue Réaumur, 75002 Paris",2,48.8665335,2.3517586,"[""VEGAN""]","[""BURGER""]","https://www.google.com/maps/place/Furahaa+-+Vegan+%7C+SMS+ONLY/@48.8665335,2.3517586,15z/data=!4m6!3m5!1s0x47e66e6a5513ffff:0xf90d0d09b0b74857!8m2!3d48.8665335!4d2.3517586!16s%2Fg%2F11f5jn52x0?entry=ttu",True,4.7,2,True,False,False,False
 18,Green Farmer's,"49 Bd de Clichy, 75009 Paris",2,48.8831396,2.334001,"[""VEGAN""]","[""BURGER""]","https://www.google.com/maps/place/Green+Farmer%E2%80%99s/@48.8831396,2.334001,15z/data=!4m6!3m5!1s0x47e66fe433ce69c3:0xde6af12ec8dd8290!8m2!3d48.8831396!4d2.334001!16s%2Fg%2F11n07rmj0j?entry=ttu",True,4.8,9,True,False,False,False
-19,Land and Monkeys - 
+19,Land and Monkeys - ,
 20,SO NAT (click and collect),"5 Rue Bourdaloue, 75009 Paris",1,48.8764112,2.3385346,"[""VEGAN""]","[""SALADE""]","https://www.google.com/maps/place/SO+NAT+-+Notre+Dame+de+Lorette/@48.8764112,2.3385346,15z/data=!4m6!3m5!1s0x47e66e3882b11463:0x7131273e4ec56f0c!8m2!3d48.8764112!4d2.3385346!16s%2Fg%2F11c5bkcf0p?entry=ttu",True,4.6,9,True,False,False,False
 21,Cloud Cakes,
