@@ -20,3 +20,4 @@ id,name,adress,price,lat,lon,food_constraints,food_type,gmaps_link,takeaway,revi
 18,Green Farmer's,"49 Bd de Clichy, 75009 Paris",2,48.8831396,2.334001,"[""VEGAN""]","[""BURGER""]","https://www.google.com/maps/place/Green+Farmer%E2%80%99s/@48.8831396,2.334001,15z/data=!4m6!3m5!1s0x47e66fe433ce69c3:0xde6af12ec8dd8290!8m2!3d48.8831396!4d2.334001!16s%2Fg%2F11n07rmj0j?entry=ttu",True,4.8,9,True,False,False,False
 19,Land and Monkeys - 
 20,SO NAT (click and collect),"5 Rue Bourdaloue, 75009 Paris",1,48.8764112,2.3385346,"[""VEGAN""]","[""SALADE""]","https://www.google.com/maps/place/SO+NAT+-+Notre+Dame+de+Lorette/@48.8764112,2.3385346,15z/data=!4m6!3m5!1s0x47e66e3882b11463:0x7131273e4ec56f0c!8m2!3d48.8764112!4d2.3385346!16s%2Fg%2F11c5bkcf0p?entry=ttu",True,4.6,9,True,False,False,False
+21,Cloud Cakes,
