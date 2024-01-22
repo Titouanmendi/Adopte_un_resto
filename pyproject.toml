@@ -5,16 +5,10 @@ description = "Squad M repo"
 authors = ["Squad M Hackaton Citio"]
 
 [tool.poetry.dependencies]
-python = "^3.11.0"
-beautifulsoup4 = "4.9.3"
-geojson = "2.5.0"
-haversine = "2.1.2"
+python = "3.11.7"
 numpy = "1.24.3"
-seaborn = "0.11.1"
 pandas = "1.5.*"
 GitPython = "^3.1.29"
-itables = "^1.3.0"
-plotly = "^5.17.0"
 streamlit = "^1.29.0"
 streamlit-dynamic-filters = "^0.1.4"
 folium = "^0.15.1"
