@@ -33,7 +33,10 @@ word_to_better_word = {
     "SALADE": "Salade",
 }
 
-district_list = [2,3,4,6,9,10,11,18,19,20]
+district_list = [2,3,4,6,9,10,11,18,19,20,92120]
+lieu_mapping = {"Partout": "Partout", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
+lieu_mapping2 = {"Partout": "Partout", "Patisserie": "bakery", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
+
 
 
 def convert_words_to_emojis(input_string):

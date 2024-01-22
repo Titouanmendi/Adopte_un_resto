@@ -8,9 +8,7 @@ from folium.plugins import MarkerCluster
 from streamlit_folium import folium_static
 from streamlit_card import card
 
-from utils import convert_words_to_emojis, district_list
-
-#TODO: Use fields chez_jaz and taff_jaz
+from utils import convert_words_to_emojis, district_list, lieu_mapping
 
 # -- Set page config
 st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
@@ -57,7 +55,6 @@ lieu = st.sidebar.radio(
     ("Partout", "Proche de chez Jaz", "Proche du taff de Jaz"),
 )
 
-lieu_mapping = {"Partout": "Partout", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
 lieu_value = lieu_mapping[lieu]
 
 filtered_df = df[df["price"] <= price_value]
@@ -66,9 +63,6 @@ if lieu_value != "Partout":
     filtered_df = filtered_df[filtered_df[lieu_value]]
 
 print(filtered_df)
-
-
-# display_restaurants = st.sidebar.button("Manger !")
 
 
 # -- Main page
@@ -81,12 +75,12 @@ show_map = st.toggle("Liste / Carte", value=True)
 if show_map:
     st.markdown("### Carte des restaurants")
     #lat_lon = filtered_df.apply(lambda row: (row["lat"], row["lon"]), axis=1).to_list()
-    m = folium.Map(location=tieqson, tiles="Cartodb Positron", zoom_start=14)
+    m = folium.Map(location=tieqson, tiles="Cartodb Positron", zoom_start=13)
     marker_cluster = MarkerCluster().add_to(m)
     for index, row in filtered_df.iterrows():
         popup_content = (
             f'<h3>{row["name"]}</h3>'
-            f'<p><b>Food Type:</b> {row["food_type"]}</p>'
+            f'<p><b>Food Type:</b> {", ".join([word.capitalize() for word in row["food_type"]])}</p>'
             f'<p><b>Price:</b> {row["price"]}</p>'
             f'<p><b>Note:</b> {row["review"]}</p>'
         )
