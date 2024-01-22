@@ -5,7 +5,7 @@ description = "Squad M repo"
 authors = ["Squad M Hackaton Citio"]
 
 [tool.poetry.dependencies]
-python = "3.11.0"
+python = "^3.11.0"
 beautifulsoup4 = "4.9.3"
 geojson = "2.5.0"
 haversine = "2.1.2"
