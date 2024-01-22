@@ -7,7 +7,7 @@ left_co, cent_co, last_co = st.columns(3)
 with cent_co:
     st.image("assets/AdopteUnResto.png", width=300)
 
-st.write("# Connecte-toi pour adopter ton restaurant! 🍽😋")
+st.write("# Plus d'excuse pour lâcher! 🍽😋")
 
 
 def authentification_et_redirection():
@@ -28,3 +28,4 @@ def authentification_et_redirection():
 
 # Appeler la fonction d'authentification et redirection
 authentification_et_redirection()
+st.write("### C'est juste pour faire genre j'ai trop la flemme juste clique sur les onglets à gauche")

@@ -9,12 +9,14 @@ word_to_emoji_mapping = {
     "SUSHI": "🍣",
     "PIZZA": "🍕",
     "BURGER": "🍔",
-    "LEBANESE": "🇱🇧"
+    "LEBANESE": "🇱🇧",
     "BISTROT": "🍽️",
     "SANDWICH": "🥪",
     "SALADE": "🥗",
     "ASIATIQUE": "🍜",
     "POKE": "🍱",
+    "DONUT": "🍩",
+    "COFFEE": "☕️"
 }
 
 word_to_better_word = {
@@ -30,6 +32,8 @@ word_to_better_word = {
     "SANDWICH": "Sandwich",
     "SALADE": "Salade",
 }
+
+district_list = [2,3,4,6,9,10,11,18,19,20]
 
 
 def convert_words_to_emojis(input_string):
