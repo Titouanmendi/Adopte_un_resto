@@ -16,7 +16,8 @@ word_to_emoji_mapping = {
     "ASIATIQUE": "🍜",
     "POKE": "🍱",
     "DONUT": "🍩",
-    "COFFEE": "☕️"
+    "COFFEE": "☕️",
+    "COOKIE": "🍪",
 }
 
 word_to_better_word = {
@@ -33,7 +34,7 @@ word_to_better_word = {
     "SALADE": "Salade",
 }
 
-district_list = [2,3,4,6,9,10,11,18,19,20,92120]
+district_list = [2,3,4,6,9,10,11,12,18,19,20,92120]
 lieu_mapping = {"Partout": "Partout", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
 lieu_mapping2 = {"Partout": "Partout", "Patisserie": "bakery", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
 
