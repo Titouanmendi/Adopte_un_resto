@@ -5,6 +5,7 @@
 #### Added
 * Created a non-vegan version for snacks
 * New database
+* 10 new restaurants to the vegan version : vegan sushis + new bakeries such as vegan cookies
 
 #### Modified
 * Modified UI to easily swap between vegan or not
