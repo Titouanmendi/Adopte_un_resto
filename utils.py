@@ -18,6 +18,9 @@ word_to_emoji_mapping = {
     "DONUT": "🍩",
     "COFFEE": "☕️",
     "COOKIE": "🍪",
+    "GAUFRE": "🧇",
+    "ICE CREAM": "🍦",
+    "CREPE": "🥞"
 }
 
 word_to_better_word = {
@@ -35,9 +38,10 @@ word_to_better_word = {
 }
 
 district_list = [2,3,4,6,9,10,11,12,18,19,20,92120]
-lieu_mapping = {"Partout": "Partout", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
-lieu_mapping2 = {"Partout": "Partout", "Patisserie": "bakery", "Proche de chez Jaz": "chez_jaz", "Proche du taff de Jaz": "taff_jaz"}
-
+district_list_Tess = [1,2,3,4,5,6,9,11,12]
+lieu_mapping = {"Partout": "Partout", "Proche de la Villette": "chez_jaz", "Montrouge": "taff_jaz"}
+lieu_mapping2 = {"Partout": "Partout", "Patisserie": "bakery", "Proche de la Villette": "chez_jaz", "Montrouge": "taff_jaz"}
+lieu_mapping3 = {"Partout": "Partout", "Dans le quartier": "proche"}
 
 
 def convert_words_to_emojis(input_string):

@@ -52,7 +52,7 @@ price_value = price_mapping[price]
 
 lieu = st.sidebar.radio(
     "Lieu",
-    ("Partout", "Proche de chez Jaz", "Proche du taff de Jaz"),
+    ("Partout", "Proche de la Villette", "Montrouge"),
 )
 
 lieu_value = lieu_mapping[lieu]

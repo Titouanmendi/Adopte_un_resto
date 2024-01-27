@@ -5,26 +5,38 @@ import numpy as np
 import pandas as pd
 import base64
 
-from utils import convert_words_to_emojis, district_list, lieu_mapping2
+from utils import convert_words_to_emojis, district_list, lieu_mapping2, lieu_mapping3
 
 
 
 # -- Set page config
 st.set_page_config(page_title="Adopte un resto", page_icon="🔥")
 
-df = pd.read_csv("data/restaurants.csv")
+st.sidebar.markdown("## Filtres")
+tess_jaz = st.sidebar.toggle("Tess / Jaz", value=True)
+
+if tess_jaz:
+    df = pd.read_csv("data/restaurants.csv")
+    lieu = st.sidebar.radio(
+        "Lieu",
+        ("Partout", "Patisserie", "Proche de la Villette", "Montrouge"),
+    )
+    lieu_value = lieu_mapping2[lieu]
+    if lieu_value != "Partout":
+        df = df[df[lieu_value]]
+
+else:
+    df = pd.read_csv("data/gouter_Tess.csv")
+    lieu = st.sidebar.radio(
+        "Lieu",
+        ("Partout", "Dans le quartier"),
+    )
+    lieu_value = lieu_mapping3[lieu]
+    if lieu_value != "Partout":
+        df = df[df[lieu_value]]
+
 
 df["price_emoji"] = df["price"].map({1: "€", 2: "€€", 3: "€€€"})
-
-st.sidebar.markdown("## Filtres")
-
-lieu = st.sidebar.radio(
-    "Lieu",
-    ("Partout", "Patisserie", "Proche de chez Jaz", "Proche du taff de Jaz"),
-)
-lieu_value = lieu_mapping2[lieu]
-if lieu_value != "Partout":
-    df = df[df[lieu_value]]
 
 filepath = "assets/logo.png"
 with open(filepath, "rb") as f:
