@@ -1,9 +1,10 @@
 # Release note
 
-### Unreleased
+### 24-02-02 v0.3
 
 ### Added
-* 5 new vegan restaurants
+* 12 new vegan restaurants
+* Tit's selection and "Nouveautés"
 
 ### 24-01-27 v0.2
 

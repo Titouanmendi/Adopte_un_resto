@@ -24,6 +24,7 @@ detectorlist = ["H1", "L1", "V1"]
 # -- Sidebar
 
 df = pd.read_csv("data/restaurants.csv")
+print(df.columns)
 df["food_type"] = df["food_type"].apply(literal_eval)
 
 
@@ -38,6 +39,10 @@ if bakery:
 vegan_only = st.sidebar.toggle("Vegan uniquement", value=False)
 if vegan_only:
     df = df[df['vegan_only']]
+
+tits_choice = st.sidebar.toggle("Sélection du Tits", value=False)
+if tits_choice:
+    df = df[df['selection_tits']]
 
 district = st.sidebar.multiselect("Arrondissement", options=df_districts, default=district_list)
 
@@ -61,7 +66,7 @@ filtered_df = df[df["price"] <= price_value]
 filtered_df = filtered_df[filtered_df["district"].isin(district)]
 if lieu_value != "Partout":
     filtered_df = filtered_df[filtered_df[lieu_value]]
-
+    
 print(filtered_df)
 
 
@@ -74,6 +79,8 @@ show_map = st.toggle("Liste / Carte", value=True)
 # df = pd.read_csv("data/restaurants.csv")
 if show_map:
     st.markdown("### Carte des restaurants")
+    st.markdown(f"#### Il y a actuellement {str(len(filtered_df))} restaurants correspondant à tes critères.")
+
     #lat_lon = filtered_df.apply(lambda row: (row["lat"], row["lon"]), axis=1).to_list()
     m = folium.Map(location=tieqson, tiles="Cartodb Positron", zoom_start=13)
     marker_cluster = MarkerCluster().add_to(m)
@@ -91,6 +98,7 @@ if show_map:
     folium_static(m, width=800, height=500)
 else:
     st.markdown("### Liste des restaurants")
+    st.markdown(f"#### Il y a actuellement {str(len(filtered_df))} restaurants correspondant à tes critères.")
 
     filepath = "assets/logo.png"
     with open(filepath, "rb") as f:

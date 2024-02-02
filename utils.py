@@ -21,7 +21,8 @@ word_to_emoji_mapping = {
     "GAUFRE": "🧇",
     "ICE CREAM": "🍦",
     "CREPE": "🥞",
-    "MEXICAIN": "🇲🇽"
+    "MEXICAIN": "🇲🇽",
+    "INDIEN": "🇮🇳",
 }
 
 word_to_better_word = {
