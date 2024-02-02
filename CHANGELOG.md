@@ -2,7 +2,7 @@
 
 ### 24-02-02 v0.3
 
-### Added
+#### Added
 * 12 new vegan restaurants
 * Tit's selection and "Nouveautés"
 
