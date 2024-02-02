@@ -20,7 +20,8 @@ word_to_emoji_mapping = {
     "COOKIE": "🍪",
     "GAUFRE": "🧇",
     "ICE CREAM": "🍦",
-    "CREPE": "🥞"
+    "CREPE": "🥞",
+    "MEXICAIN": "🇲🇽"
 }
 
 word_to_better_word = {

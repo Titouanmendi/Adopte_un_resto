@@ -1,5 +1,10 @@
 # Release note
 
+### Unreleased
+
+### Added
+* 5 new vegan restaurants
+
 ### 24-01-27 v0.2
 
 #### Added
